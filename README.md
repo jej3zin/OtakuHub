@@ -1,0 +1,2 @@
+# OtakuHub
+Comunidade de Otakus.
