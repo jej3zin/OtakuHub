@@ -4,11 +4,11 @@
 @import url(./_variables.css);
 
 /* ======= Pages ======= */
-@import url(./pages/index.css);
+/* @import url(./pages/index.css); */
 @import url(./pages/home.css);
-@import url();
+@import url(./pages/auth.css);
 
 /* ======= layout ======= */
 @import url(./layout/header.css);
-@import url();
-@import url();
+/* @import url(./layout/sidebar.css); */
+@import url(./layout/timeline.css);

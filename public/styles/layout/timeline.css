@@ -1,0 +1,187 @@
+/* ===== TIMELINE / HOME ===== */
+
+:root {
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 84px;
+}
+
+/* ===== APP LAYOUT ===== */
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  min-height: 100vh;
+  transition: grid-template-columns 0.3s ease;
+}
+
+.app.is-collapsed {
+  grid-template-columns: var(--sidebar-collapsed) 1fr;
+}
+.app.is-collapsed .timeline {
+  width: calc(100% - var(--sidebar-collapsed));
+}
+/* ===== T I M E L I N E ===== */
+.timeline {
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-05);
+  transition: padding 0.3s ease;
+  border: 1px solid red;
+}
+/* ===== HEADER ===== */
+.timeline-header {
+  padding: 1rem 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--gap-04);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-02);
+  transition: padding 0.3s ease;
+}
+.timeline-header h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* ===== SEARCH ===== */
+.searchbox {
+  position: relative;
+  max-width: 420px;
+}
+.searchbox input {
+  width: 100%;
+  height: 42px;
+  padding: 0 38px;
+  color: var(--text-01);
+  border: var(--border-01);
+  border-radius: var(--radius-03);
+  background: var(--bg-03);
+}
+.searchbox ion-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-03);
+}
+/* INPUT */
+.searchbox input::placeholder {
+  color: var(--text-03);
+}
+.searchbox input:focus {
+  outline: none;
+  border-color: var(--brand-03);
+  box-shadow: 0 0 0 2px var(--brand-06);
+}
+.searchbox input:focus ~ ion-icon,
+.searchbox input:focus ~ ion-icon {
+  color: var(--brand-01);
+}
+/* FOCUS EFFECT */
+.searchbox input:focus ~ ion-icon {
+  color: var(--brand-01);
+}
+/* CLEAR ICON */
+.icon-clear {
+  position: absolute;
+  right: 2.75rem;
+  top: 50%;
+  transform: translateY(-50%) scale(0.7);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--anima-01);
+}
+.icon-clear ion-icon {
+  font-size: 1.2rem;
+  color: var(--text-03);
+}
+.icon-clear:hover ion-icon {
+  color: var(--brand-01);
+  transform: scale(1.1);
+}
+/* SHOW CLEAR WHEN HAS VALUE */
+.searchbox input:not(:placeholder-shown) ~ .icon-clear {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+}
+
+/* ===== FEED TOGGLE ===== */
+.feed-toggle {
+  background: var(--bg-03);
+  border-radius: var(--radius-03);
+  display: flex;
+  padding: 4px;
+}
+.feed-toggle button {
+  padding: 0.4rem 0.9rem;
+  color: var(--text-02);
+  border-radius: var(--radius-02);
+  transition: var(--anima-01);
+}
+.feed-toggle button:hover {
+  color: var(--text-01);
+}
+.feed-toggle button.active {
+  background: linear-gradient(135deg, var(--brand-01), var(--brand-03));
+  color: #000;
+}
+
+/* EMPTY STATE */
+.empty {
+  margin-top: 15vh;
+  text-align: center;
+  color: var(--text-03);
+}
+.empty ion-icon {
+  font-size: 3rem;
+  color: var(--brand-04);
+}
+.empty h3 {
+  margin-top: var(--space-3);
+  color: var(--text-01);
+}
+.empty p {
+  font-size: 0.9rem;
+}
+
+/* /* ===== MOBILE ===== *
+@media (max-width: 768px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+}
+/* ===== RESPONSIVE ===== *
+@media (max-width: 768px) {
+  .timeline-header {
+    grid-template-columns: 1fr;
+    gap: var(--gap-03);
+  }
+
+  .searchbox {
+    max-width: 100%;
+  }
+
+  .feed-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+} */
