@@ -1,0 +1,451 @@
+/* ===== APP LAYOUT ===== */
+.app {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: var(--bg-02);
+  font-family: var(--font-sans);
+  color: var(--text-01);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-05);
+  border-right: var(--card-border);
+  background: linear-gradient(180deg, var(--bg-01), var(--bg-02));
+}
+.collapse-btn {
+  width: 3rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.collapse-btn ion-icon {
+  font-size: 1.15rem;
+}
+/* PROFILE */
+.profile {
+  text-align: center;
+}
+
+.profile img {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid var(--brand-04);
+}
+
+.profile strong {
+  display: block;
+  margin-top: var(--space-2);
+}
+
+.profile span {
+  font-size: 0.75rem;
+  color: var(--success-01);
+}
+
+/* MENU */
+.menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-02);
+}
+.menu-a {
+  padding: 0.75rem;
+  text-decoration: none;
+  color: var(--text-02);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-02);
+  border-radius: var(--radius-03);
+  transition: var(--anima-01);
+}
+
+.menu a ion-icon {
+  font-size: 1.2rem;
+}
+
+.menu a:hover,
+.menu a.active {
+  color: var(--brand-01);
+  background: var(--brand-05);
+}
+
+/* ACCOUNT */
+.account {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-02);
+}
+
+.account a {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-02);
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--text-02);
+}
+
+.account a.logout {
+  color: var(--danger-02);
+}
+
+/* ===== T I M E L I N E ===== */
+.timeline {
+  padding: var(--space-9);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-05);
+}
+
+/* ===== TIMELINE HEADER ===== */
+.timeline-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--gap-04);
+}
+
+/* ===== TITLE ===== */
+.timeline-header h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* ===== SEARCH ===== */
+.searchbox {
+  position: relative;
+  max-width: 420px;
+}
+
+.searchbox ion-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: var(--text-03);
+  pointer-events: none;
+  transition: var(--anima-01);
+}
+/* INPUT */
+.searchbox input {
+  width: 100%;
+  height: 42px;
+  padding: 0 38px;
+  background: var(--bg-03);
+  border: var(--border-01);
+  border-radius: var(--radius-03);
+  color: var(--text-01);
+  transition: var(--anima-01);
+}
+
+.searchbox input::placeholder {
+  color: var(--text-03);
+}
+
+.searchbox input:focus {
+  outline: none;
+  border-color: var(--brand-03);
+  box-shadow: 0 0 0 2px var(--brand-06);
+}
+
+.searchbox input:focus ~ ion-icon,
+.searchbox input:focus ~ ion-icon {
+  color: var(--brand-01);
+}
+
+/* FOCUS EFFECT */
+.searchbox input:focus ~ ion-icon {
+  color: var(--brand-01);
+}
+
+/* CLEAR ICON */
+.icon-clear {
+  position: absolute;
+  right: 2.75rem;
+  top: 50%;
+  transform: translateY(-50%) scale(0.7);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--anima-01);
+}
+
+.icon-clear ion-icon {
+  font-size: 1.2rem;
+  color: var(--text-03);
+}
+
+.icon-clear:hover ion-icon {
+  color: var(--brand-01);
+  transform: scale(1.1);
+}
+
+/* SHOW CLEAR WHEN HAS VALUE */
+.searchbox input:not(:placeholder-shown) ~ .icon-clear {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+}
+
+/* ===== FEED TOGGLE ===== */
+.feed-toggle {
+  background: var(--bg-03);
+  border-radius: var(--radius-03);
+  display: flex;
+  padding: 4px;
+}
+
+.feed-toggle button {
+  background: none;
+  border: none;
+  padding: 0.4rem 0.9rem;
+  color: var(--text-02);
+  cursor: pointer;
+  border-radius: var(--radius-02);
+  transition: var(--anima-01);
+  font-size: 0.85rem;
+}
+
+.feed-toggle button:hover {
+  color: var(--text-01);
+}
+
+.feed-toggle button.active {
+  background: linear-gradient(135deg, var(--brand-01), var(--brand-03));
+  color: #000;
+  box-shadow: var(--shadow-btns);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .timeline-header {
+    grid-template-columns: 1fr;
+    gap: var(--gap-03);
+  }
+
+  .searchbox {
+    max-width: 100%;
+  }
+
+  .feed-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.feed-toggle {
+  background: var(--bg-03);
+  border-radius: var(--radius-03);
+  display: flex;
+  padding: 4px;
+}
+
+.feed-toggle button {
+  background: none;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  color: var(--text-02);
+  cursor: pointer;
+  border-radius: var(--radius-02);
+  transition: var(--anima-01);
+}
+
+.feed-toggle button.active {
+  background: linear-gradient(135deg, var(--brand-01), var(--brand-03));
+  color: #000;
+}
+
+/* EMPTY STATE */
+.empty {
+  margin-top: 15vh;
+  text-align: center;
+  color: var(--text-03);
+}
+.empty ion-icon {
+  font-size: 3rem;
+  color: var(--brand-04);
+}
+.empty h3 {
+  margin-top: var(--space-3);
+  color: var(--text-01);
+}
+.empty p {
+  font-size: 0.9rem;
+}
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  transition: var(--anima-01);
+}
+
+#collapseSidebar:checked ~ .app .sidebar {
+  width: 90px;
+}
+#collapseSidebar:checked ~ .app .sidebar .menu {
+  width: 3rem;
+}
+#collapseSidebar:checked ~ .app .sidebar .menu-a {
+  display: flex;
+  justify-content: center;
+}
+#collapseSidebar:checked ~ .app .sidebar span,
+#collapseSidebar:checked ~ .app .profile div {
+  display: none;
+}
+/* Dropdown */
+.avatar-dropdown {
+  display: none;
+  flex-direction: column;
+  background: var(--bg-03);
+  border-radius: var(--radius-03);
+  padding: var(--space-3);
+  gap: var(--gap-02);
+  animation: fadeUp 0.25s ease;
+}
+
+#avatarMenu:checked ~ .app .avatar-dropdown {
+  display: flex;
+}
+
+.avatar-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-02);
+  color: var(--text-02);
+  text-decoration: none;
+}
+
+.avatar-dropdown a.danger {
+  color: var(--danger-02);
+}
+
+/* card */
+.post-card {
+  background: linear-gradient(180deg, var(--bg-01), var(--bg-02));
+  border: var(--card-border);
+  border-radius: var(--radius-04);
+  padding: var(--space-5);
+  max-width: 600px;
+  box-shadow: var(--shadow-02);
+  animation: fadeUp 0.3s ease;
+}
+
+.post-header {
+  display: flex;
+  gap: var(--gap-03);
+  align-items: center;
+}
+
+.post-header img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.post-header span {
+  font-size: 0.75rem;
+  color: var(--text-03);
+}
+
+.post-card p {
+  margin: var(--space-4) 0;
+}
+
+.post-actions {
+  display: flex;
+  gap: var(--gap-04);
+}
+
+.post-actions button {
+  background: none;
+  border: none;
+  color: var(--text-02);
+  display: flex;
+  gap: 4px;
+  cursor: pointer;
+  transition: var(--anima-01);
+}
+
+.post-actions button:hover {
+  color: var(--brand-01);
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap-04);
+  }
+
+  .menu,
+  .account {
+    flex-direction: row;
+  }
+
+  .timeline {
+    padding: var(--space-5);
+  }
+}
+.mobile-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: var(--bg-01);
+    border-top: var(--card-border);
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .mobile-bar ion-icon {
+    font-size: 1.6rem;
+    color: var(--text-02);
+    transition: var(--anima-01);
+  }
+
+  .mobile-bar ion-icon:hover {
+    color: var(--brand-01);
+    transform: scale(1.15);
+  }
+
+  .timeline {
+    padding-bottom: 90px;
+  }
+}

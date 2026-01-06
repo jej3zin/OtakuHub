@@ -1,0 +1,65 @@
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
+body {
+  /* padding-top: 4vh; */
+  line-height: 1.45;
+  font-family: var(--font-sans);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+img,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+/* Scrollbar (lightweight) */
+:root::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+:root::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--brand-01), var(--brand-02));
+}
+
+/* Selection */
+::selection {
+  color: var(--bg-02);
+  background: var(--brand-01);
+}
+/* REMOVE O X NATIVO DO INPUT SEARCH */
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 1px solid var(--brand-01);
+}

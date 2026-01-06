@@ -1,0 +1,335 @@
+/* css/pages/index.css para index.html */
+/* ===== BASE ===== */
+.system-log {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, var(--brand-05), transparent 60%),
+    var(--bg-02);
+  font-family: var(--font-sans);
+  color: var(--text-01);
+}
+
+/* ===== CARD ===== */
+.system-log__card {
+  width: 100%;
+  max-width: 420px;
+  padding: var(--space-5);
+  background: linear-gradient(180deg, var(--bg-01), var(--bg-02));
+  border: var(--card-border);
+  border-radius: var(--radius-04);
+  box-shadow: var(--shadow-03);
+  position: relative;
+  overflow: hidden;
+}
+.system-log__card h2 {
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+/* ===== TOGGLE ===== */
+.auth-toggle {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg-03);
+  border-radius: var(--radius-03);
+  margin-bottom: var(--space-5);
+}
+
+.auth-toggle label {
+  padding: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-02);
+  cursor: pointer;
+  z-index: 2;
+  transition: var(--anima-01);
+}
+
+.auth-toggle .indicator {
+  position: absolute;
+  inset: 4px;
+  width: calc(50% - 4px);
+  background: linear-gradient(135deg, var(--brand-01), var(--brand-03));
+  border-radius: var(--radius-02);
+  transition: var(--anima-01);
+}
+
+/* ===== PANELS ===== */
+.auth-panel {
+  display: none;
+  flex-direction: column;
+  gap: var(--gap-04);
+  animation: fadeUp 0.35s ease;
+}
+.auth-panel h2 {
+  font-size: 1.5rem;
+  margin: var(--space-3);
+}
+
+/* ===== INPUTS ===== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-01);
+}
+
+.field label {
+  font-size: 0.75rem;
+  color: var(--text-03);
+}
+
+.field input {
+  height: 46px;
+  padding: 0 14px;
+  background: var(--bg-03);
+  border: var(--border-01);
+  border-radius: var(--radius-02);
+  color: var(--text-01);
+  transition: var(--anima-01);
+}
+
+.field input:focus {
+  border-color: var(--brand-03);
+  box-shadow: 0 0 0 2px var(--brand-06);
+  outline: none;
+}
+
+/* ===== BUTTON ===== */
+/* button {
+  margin-top: var(--space-4);
+  height: 48px;
+  border: none;
+  border-radius: var(--radius-03);
+  background: linear-gradient(135deg, var(--brand-01), var(--brand-03));
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-btns);
+  transition: var(--anima-01);
+}
+
+button:hover {
+  transform: translateY(-2px);
+} */
+
+/* ===== TOGGLE LOGIC ===== */
+#loginTab:checked ~ .system-log__card .login {
+  display: flex;
+}
+
+#registerTab:checked ~ .system-log__card .register {
+  display: flex;
+}
+
+#registerTab:checked ~ .system-log__card .indicator {
+  transform: translateX(100%);
+}
+
+#loginTab:checked ~ .system-log__card .auth-toggle label:nth-child(1),
+#registerTab:checked ~ .system-log__card .auth-toggle label:nth-child(2) {
+  color: #000;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Eyes password */
+.eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(25%);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.eye ion-icon {
+  position: absolute;
+  font-size: 1.2rem;
+  color: var(--text-02);
+  transition: var(--anima-01);
+}
+
+.eye:hover ion-icon {
+  color: var(--brand-01);
+  transform: scale(1.15);
+}
+
+/* toggle */
+.eye-closed {
+  opacity: 0;
+  transform: scale(0.6) rotate(-20deg);
+}
+
+#showPassword:checked ~ .system-log__card .eye-open {
+  opacity: 0;
+  transform: scale(0.6) rotate(20deg);
+}
+
+#showPassword:checked ~ .system-log__card .eye-closed {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
+
+/* mostrar senha */
+#showPassword:checked ~ .system-log__card input[type='password'] {
+  -webkit-text-security: none;
+}
+
+/* ===== MOBILE FIRST ===== */
+.system-log {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: radial-gradient(circle at top, var(--brand-06), transparent 60%),
+    var(--bg-02);
+  font-family: var(--font-sans);
+}
+
+.system-log__card {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(180deg, var(--bg-01), var(--bg-02));
+  border-radius: var(--radius-04);
+  border: var(--card-border);
+  box-shadow: var(--shadow-03);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-02);
+}
+
+/* ===== OAUTH ===== */
+.oauth {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-03);
+}
+.oauth-btn {
+  width: 100%;
+  height: 46px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-01);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-02);
+  border-radius: var(--radius-03);
+  border: var(--border-01);
+  background: var(--bg-03);
+  transition: var(--anima-01);
+}
+
+.oauth-btn ion-icon {
+  font-size: 1.2rem;
+}
+.oauth-btn:hover {
+  background: var(--brand-04);
+}
+
+.btn-submit {
+  height: 48px;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--brand-01), var(--brand-03));
+  box-shadow: var(--shadow-btns);
+  border-radius: var(--radius-02);
+  transform: translateY(0px);
+  transition: var(--anima-01);
+}
+.btn-submit:hover {
+  transform: translateY(-2px);
+}
+/* ===== DIVIDER ===== */
+.divider {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-03);
+  position: relative;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: var(--bg-06);
+}
+.divider::before {
+  left: 0;
+}
+.divider::after {
+  right: 0;
+}
+
+/* ===== INPUTS ===== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-01);
+  position: relative;
+}
+.field label {
+  font-size: 0.75rem;
+  color: var(--text-03);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-01);
+}
+.field input {
+  height: 46px;
+  padding: 0 14px;
+  background: var(--bg-03);
+  border: var(--border-01);
+  border-radius: var(--radius-02);
+  color: var(--text-01);
+}
+.field input:focus {
+  border-color: var(--brand-03);
+  box-shadow: 0 0 0 2px var(--brand-06);
+  outline: none;
+}
+
+/* ===== PASSWORD EYE ===== */
+.field.password {
+  position: relative;
+}
+.eye {
+  position: absolute;
+  right: 2rem;
+  top: 65%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--text-02);
+}
+#showPassword:checked ~ .system-log__card input[type='password'] {
+  -webkit-text-security: none;
+  text-security: none;
+}
+/* ===== LOGIC ===== */
+#loginTab:checked ~ .system-log__card .login {
+  display: flex;
+}
+
+#registerTab:checked ~ .system-log__card .register {
+  display: flex;
+}
+
+#registerTab:checked ~ .system-log__card .indicator {
+  transform: translateX(100%);
+}
+.visitbtn {
+  color: var(--brand-01);
+}

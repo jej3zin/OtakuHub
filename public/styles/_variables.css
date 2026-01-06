@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* ======== TOKENS & VARIABLES ======== */
+:root {
+  /* ===== HEIGHT & WIDTH ===== */
+  --header-height: 9vh;
+  --width-bar: 300px;
+
+  /* ===== FONT & TYPOGRAPHY ===== */
+  --font-sans: 'Poppins', Arial, Helvetica, sans-serif;
+  --font-size-base: 1erm;
+
+  /* ===== SPACING & GAP ===== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 1rem;
+  --space-5: 20px;
+  --space-9: 5rem;
+
+  --gap-01: 0.25rem;
+  --gap-02: 0.5rem;
+  --gap-03: 0.75rem;
+  --gap-04: 1rem;
+  --gap-05: 1.25rem;
+  --gap-06: 1.5rem;
+
+  /* ===== BACKGROUNDS ===== */
+  --bg-01: #222222;
+  --bg-01-2: rgba(34, 34, 34, 0.5);
+  --bg-02: #111111;
+  --bg-02-2: rgba(17, 17, 17, 0.5);
+  --bg-03: #333;
+  --bg-03-2: rgba(51, 51, 51, 0.5);
+  --bg-04: rgba(0, 0, 0, 0.25);
+  --bg-05: rgba(255, 255, 255, 0.025);
+  --bg-06: rgba(255, 255, 255, 0.05);
+
+  /* ===== BACKGROUNDS FUNDS ===== */
+  --funds-01: rgba(0, 0, 0, 0.25);
+  --funds-02: rgba(0, 0, 0, 0.5);
+  --funds-03: rgba(0, 0, 0, 0.75);
+
+  /* ===== TEXTS ===== */
+  --text-01: #eeeeee;
+  --text-02: #bdbdbd;
+  --text-03: rgba(255, 255, 255, 0.5);
+
+  --brand-01: #ff7200;
+  --brand-02: #ff7200ff;
+  --brand-03: #ff7200bf;
+  --brand-04: #ff720080;
+  --brand-05: #ff720040;
+  --brand-06: #ff72001a;
+
+  /* ===== UTILITY COLORS ===== */
+  --attention-01: #fedc00ff;
+
+  --danger-01: #b33a36;
+  --danger-02: #c9302c;
+  --danger-shadow-01: 0 0 13px 3px #b33a3680;
+  --danger-shadow-02: 0 0 13px 3px #c9302c80;
+
+  --success-01: #49e44e;
+  --success-02: #4caf50;
+  --success-shadow-01: 0 0 13px 3px #49e44e80;
+  --success-shadow-02: 0 0 13px 3px #4caf5080;
+
+  /* ===== BORDERS ===== */
+  --border-01: 1px solid rgba(255, 255, 255, 0.06);
+  --border-01-2: 1px solid rgba(255, 255, 255, 0.2);
+  --border-02: 1px solid rgba(255, 255, 255, 0.12);
+  --border-03: 1px solid rgba(255, 255, 255, 0.6);
+  --card-border: 1px solid rgba(255, 255, 255, 0.04);
+
+  /* ===== SHADOWS ===== */
+  --shadow-01: 0 6px 10px #ffffff12;
+  --shadow-02: 0 4px 10px #0000002e;
+  --shadow-03: 0 8px 18px #00000047;
+  --shadow-brand-01: 0 0 14px 3px #fedc0080;
+  --shadow-danger: 0 0 12px 3px #b33a362e;
+
+  --shadow-banner: 0 4px 0px #ffb300cc;
+  --shadow-btns: 0 0px 10px #ffb300cc;
+
+  /* ===== BLUR / DESFOCO ===== */
+  --blur-1: blur(2px);
+  --blur-2: blur(4px);
+  --blur-3: blur(8px);
+  --blur-4: blur(12px);
+
+  /* ===== BORDER-RADIUS ===== */
+  --radius-01: 0.25rem;
+  --radius-02: 0.5rem;
+  --radius-03: 0.75rem;
+  --radius-04: 1rem;
+  --radius-05: 1.25rem;
+
+  /* ===== TRANSITIONS ===== */
+  --anima-01: 0.3s ease all;
+}

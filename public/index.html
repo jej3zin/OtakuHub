@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OtakuHub</title>
+    <link rel="icon" href="/asset/briefing/" />
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/styles/index.css" />
+
+    <!-- Import Icons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <div id="preloader">
+      <span class="loader"> </span>
+    </div>
+
+    <div id="content">
+      <section class="system-log">
+        <input type="radio" name="auth" id="loginTab" checked hidden />
+        <input type="radio" name="auth" id="registerTab" hidden />
+        <input type="checkbox" id="showPassword" hidden />
+
+        <form class="system-log__card">
+          <h2>Welcome!</h2>
+          <!-- TOGGLE -->
+          <div class="auth-toggle">
+            <label for="loginTab">Login</label>
+            <label for="registerTab">Cadastro</label>
+            <span class="indicator"></span>
+          </div>
+
+          <!-- OAUTH -->
+          <div class="oauth">
+            <button class="oauth-btn github" type="button">
+              <ion-icon name="logo-github"></ion-icon>
+              GitHub
+            </button>
+
+            <button class="oauth-btn google" type="button">
+              <ion-icon name="logo-google"></ion-icon>
+              Google
+            </button>
+          </div>
+
+          <!-- LOGIN -->
+          <div class="auth-panel login">
+            <h2>Boas vindas</h2>
+
+            <div class="field">
+              <label><ion-icon name="mail"></ion-icon>Email</label>
+              <input type="email" placeholder="seu@email.com" />
+            </div>
+
+            <div class="field">
+              <label><ion-icon name="lock-closed"></ion-icon>Senha</label>
+              <input type="password" placeholder="••••••••" />
+              <label for="showPassword" class="eye">
+                <ion-icon name="eye-outline" class="eye-open"></ion-icon>
+                <ion-icon name="eye-off-outline" class="eye-closed"></ion-icon>
+              </label>
+            </div>
+
+            <button class="btn-submit">Entrar</button>
+          </div>
+
+          <!-- REGISTER -->
+          <div class="auth-panel register">
+            <h2>Criar conta</h2>
+
+            <div class="field">
+              <label><ion-icon name="person"></ion-icon>Nome</label>
+              <input type="text" placeholder="Seu nome" />
+            </div>
+
+            <div class="field">
+              <label><ion-icon name="mail"></ion-icon>Email</label>
+              <input type="email" placeholder="seu@email.com" />
+            </div>
+
+            <div class="field">
+              <label><ion-icon name="lock-closed"></ion-icon>Senha</label>
+              <input type="password" placeholder="Crie uma senha forte" />
+              <label for="showPassword" class="eye">
+                <ion-icon name="eye-outline" class="eye-open"></ion-icon>
+                <ion-icon name="eye-off-outline" class="eye-closed"></ion-icon>
+              </label>
+            </div>
+
+            <button class="btn-submit">Criar conta</button>
+            <a class="visitbtn" href="pages/home.html">Visitante</a>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script type="module" src="/js/index.js"></script>
+  </body>
+</html>

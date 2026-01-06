@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OtakuHub</title>
+    <link rel="icon" href="/asset/briefing/" />
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/styles/index.css" />
+
+    <!-- Import Icons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <div id="preloader">
+      <span class="loader"> </span>
+    </div>
+
+    <div id="content">
+      <input type="checkbox" id="collapseSidebar" hidden />
+      <input type="checkbox" id="avatarMenu" hidden />
+
+      <section class="app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <div class="sidebar-top">
+            <label for="collapseSidebar" class="collapse-btn">
+              <ion-icon name="menu-outline"></ion-icon>
+            </label>
+
+            <label for="avatarMenu" class="profile">
+              <img src="https://i.pravatar.cc/100" />
+              <div>
+                <strong>@jej3zin</strong>
+                <span>Online</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- DROPDOWN -->
+          <div class="avatar-dropdown">
+            <a href="#"><ion-icon name="person-outline"></ion-icon> Perfil</a>
+            <a href="#"
+              ><ion-icon name="swap-horizontal-outline"></ion-icon> Trocar
+              conta</a
+            >
+            <a href="#" class="danger"
+              ><ion-icon name="log-out-outline"></ion-icon> Sair</a
+            >
+          </div>
+
+          <nav class="menu">
+            <a class="menu-a active"
+              ><ion-icon name="play-circle-outline"></ion-icon
+              ><span>Assistir</span></a
+            >
+            <a class="menu-a"
+              ><ion-icon name="star-outline"></ion-icon
+              ><span>Favoritos</span></a
+            >
+            <a class="menu-a"
+              ><ion-icon name="library-outline"></ion-icon
+              ><span>Biblioteca</span></a
+            >
+            <a class="menu-a"
+              ><ion-icon name="settings-outline"></ion-icon
+              ><span>Configurações</span></a
+            >
+          </nav>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="timeline">
+          <!-- HEADER -->
+          <header class="timeline-header">
+            <h2>Timeline</h2>
+
+            <div class="searchbox">
+              <ion-icon name="search-outline"></ion-icon>
+              <input
+                type="search"
+                placeholder="Buscar na timeline…"
+                aria-label="Buscar"
+              />
+              <button
+                type="button"
+                class="icon-clear"
+                aria-label="Limpar busca"
+              >
+                <ion-icon name="close-circle"></ion-icon>
+              </button>
+            </div>
+
+            <div class="feed-toggle">
+              <button class="active">Relevantes</button>
+              <button>Seguindo</button>
+            </div>
+          </header>
+
+          <!-- POST CARD -->
+          <article class="post-card">
+            <header class="post-header">
+              <img src="https://i.pravatar.cc/60?img=3" />
+              <div>
+                <strong>@devzao</strong>
+                <span>há 2h</span>
+              </div>
+            </header>
+
+            <p>
+              Finalmente finalizei o layout do sistema 😮‍🔥 Dark mode limpo, UX
+              suave e micro-interactions on.
+            </p>
+
+            <footer class="post-actions">
+              <button><ion-icon name="heart-outline"></ion-icon> 12</button>
+              <button><ion-icon name="chatbubble-outline"></ion-icon> 3</button>
+              <button><ion-icon name="share-social-outline"></ion-icon></button>
+            </footer>
+          </article>
+        </main>
+      </section>
+
+      <!-- MOBILE BAR -->
+      <nav class="mobile-bar">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-icon name="search-outline"></ion-icon>
+        <ion-icon name="add-circle-outline"></ion-icon>
+        <ion-icon name="notifications-outline"></ion-icon>
+        <ion-icon name="person-outline"></ion-icon>
+      </nav>
+    </div>
+
+    <script type="module" src="/js/index.js"></script>
+  </body>
+</html>
