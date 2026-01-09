@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conta | OtakuHub</title>
+    <link rel="icon" href="/asset/briefing/oh-logo.webp" />
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/styles/index.css" />
+
+    <!-- Import Icons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <div id="preloader">
+      <span class="loader"> </span>
+    </div>
+
+    <div id="content">
+      <header class="head">
+        <div class="box-left">
+          <a href="/pages/home.html" class="box-logo">
+            <img src="/asset/briefing/oh-logotipo.webp" alt="" />
+          </a>
+        </div>
+
+        <div class="box-right">
+          <button id="openHeadDrop" class="avatarBtn">
+            <img src="/asset/briefing/oh-logo.webp" alt="Avatar" />
+          </button>
+
+          <div id="headDropdown" class="head-dropdown">
+            <p class="hiUsertext">Olá, <span id="hiUser">Visitante</span></p>
+            <button class="headDrop-links" id="viewsBtn" style="display: none">
+              <ion-icon name="person"></ion-icon>Perfil
+            </button>
+
+            <button
+              class="headDrop-links"
+              id="myaccountBtn"
+              style="display: none"
+            >
+              <ion-icon name="person-circle"></ion-icon>Conta
+            </button>
+
+            <a href="/pages/login.html" class="headDrop-links" id="loginBtn">
+              <ion-icon name="log-in"></ion-icon>Login
+            </a>
+
+            <button class="headDrop-links" id="logoutBtn" style="display: none">
+              <ion-icon name="log-out"></ion-icon>Sair
+            </button>
+
+            <div class="spaceLine"></div>
+
+            <button
+              class="headDrop-links"
+              id="libraryBtn"
+              style="display: none"
+            >
+              <ion-icon name="library"></ion-icon>Biblioteca
+            </button>
+
+            <button class="headDrop-links" id="helpBtn">
+              <ion-icon name="help-circle"></ion-icon>Central de Ajuda
+            </button>
+
+            <button class="headDrop-links" id="myaccountBtn">
+              <ion-icon name="person-circle"></ion-icon>feedback
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="myaccount">
+        <nav class="sideMenu">
+          <button class="menu-ctt active menu-cont"><ion-icon name="person-circle"></ion-icon>Conta</button>
+          <button class="menu-ctt menu-security"><ion-icon name="shield"></ion-icon>Segurança</button>
+          <button class="menu-ctt menu-notifications"><ion-icon name="notifications-circle"></ion-icon>Notificações</button>
+          <button class="menu-ctt menu-privacy"><ion-icon name="eye-off"></ion-icon>Privacidade</button>
+          <button class="menu-ctt menu-subscriptions"><ion-icon name="card"></ion-icon>Assinaturas</button>
+          <button class="menu-ctt menu-connectedapps"><ion-icon name="apps"></ion-icon>Apps Conectados</button>
+          <button class="menu-ctt menu-deleteaccount"><ion-icon name="trash"></ion-icon>Deletar Conta</button>
+        </nav>
+
+        <nav class="sectionContent">
+          <section class="accountContent">
+            <div class="align-center-img">
+              <img src="/asset/briefing/oh-logo.webp" alt="avatar">
+            </div>
+
+            <div class="text-top">
+              <h1>Minha Conta</h1>
+             <p>Gerencie as configurações da sua conta aqui.</p>
+            </div>
+         </section>
+
+          <section class="accountSegurity">
+            <div class="text-top">
+              <h1>Segurança</h1>
+             <p>Gerencie as configurações da sua conta aqui.</p>
+            </div>
+          </section>
+          <section class="accountNotification">
+            <div class="text-top">
+              <h1>Notificações</h1>
+             <p>Gerencie as configurações da sua conta aqui.</p>
+            </div></section>
+          <section class="accountPrivacy">
+            <div class="text-top">
+              <h1>Privacidade</h1>
+             <p>Gerencie as configurações da sua conta aqui.</p>
+            </div></section>
+          <section class="accountSubscriptions">
+            <div class="text-top">
+              <h1>Assinaturas</h1>
+             <p>Gerencie as configurações da sua conta aqui.</p>
+            </div></section>
+          <section class="accountConnectedApps">
+            <div class="text-top">
+              <h1>Apps Conectados</h1>
+             <p>Gerencie as configurações da sua conta aqui.</p>
+            </div></section>
+          <section class="accountDelete">
+            <div class="text-top">
+              <h1>Deletar Conta</h1>
+             <p>Gerencie as configurações da sua conta aqui.</p>
+            </div></section>
+        </nav>
+      </main>
+    </div>
+  <script type="module" src="/js/index.js"></script>
+  </body>
+</html>
+</html>

@@ -55,8 +55,8 @@
   /* ===== UTILITY COLORS ===== */
   --attention-01: #fedc00ff;
 
-  --danger-01: #b33a36;
-  --danger-02: #c9302c;
+  --danger-01: #e92d27;
+  --danger-02: #e92b2540; /* 0.25 */
   --danger-shadow-01: 0 0 13px 3px #b33a3680;
   --danger-shadow-02: 0 0 13px 3px #c9302c80;
 
@@ -67,16 +67,16 @@
 
   /* ===== BORDERS ===== */
   --border-01: 1px solid rgba(255, 255, 255, 0.06);
-  --border-01-2: 1px solid rgba(255, 255, 255, 0.2);
   --border-02: 1px solid rgba(255, 255, 255, 0.12);
-  --border-03: 1px solid rgba(255, 255, 255, 0.6);
+  --border-03: 1px solid rgba(255, 255, 255, 0.2);
   --card-border: 1px solid rgba(255, 255, 255, 0.04);
 
   /* ===== SHADOWS ===== */
   --shadow-01: 0 6px 10px #ffffff12;
   --shadow-02: 0 4px 10px #0000002e;
   --shadow-03: 0 8px 18px #00000047;
-  --shadow-brand-01: 0 0 14px 3px #fedc0080;
+  --shadow-brand-01: 0 0 14px 3px #ff720080;
+  --shadow-brand-01: 0 0 14px 3px #ff720080;
   --shadow-danger: 0 0 12px 3px #b33a362e;
 
   --shadow-banner: 0 4px 0px #ffb300cc;

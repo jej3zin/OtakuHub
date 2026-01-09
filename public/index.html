@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OtakuHub</title>
-    <link rel="icon" href="/asset/briefing/" />
+    <link rel="icon" href="/asset/briefing/oh-logo.webp" />
 
     <!-- Import CSS -->
     <link rel="stylesheet" href="/styles/index.css" />
@@ -31,7 +31,9 @@
         <input type="checkbox" id="showPassword" hidden />
 
         <form class="system-log__card">
-          <h2>Welcome!</h2>
+          <div class="system-log_img">
+            <img src="/asset/briefing/oh-logo.webp" alt="logo" />
+          </div>
           <!-- TOGGLE -->
           <div class="auth-toggle">
             <label for="loginTab">Login</label>
@@ -39,31 +41,20 @@
             <span class="indicator"></span>
           </div>
 
-          <!-- OAUTH -->
-          <div class="oauth">
-            <button class="oauth-btn github" type="button">
-              <ion-icon name="logo-github"></ion-icon>
-              GitHub
-            </button>
-
-            <button class="oauth-btn google" type="button">
-              <ion-icon name="logo-google"></ion-icon>
-              Google
-            </button>
-          </div>
-
           <!-- LOGIN -->
           <div class="auth-panel login">
             <h2>Boas vindas</h2>
 
             <div class="field">
-              <label><ion-icon name="mail"></ion-icon>Email</label>
-              <input type="email" placeholder="seu@email.com" />
+              <label for="mail"><ion-icon name="mail"></ion-icon>Email</label>
+              <input id="mail" type="email" placeholder="seu@email.com" />
             </div>
 
             <div class="field">
-              <label><ion-icon name="lock-closed"></ion-icon>Senha</label>
-              <input type="password" placeholder="••••••••" />
+              <label for="pass"
+                ><ion-icon name="lock-closed"></ion-icon>Senha</label
+              >
+              <input id="pass" type="password" placeholder="••••••••" />
               <label for="showPassword" class="eye">
                 <ion-icon name="eye-outline" class="eye-open"></ion-icon>
                 <ion-icon name="eye-off-outline" class="eye-closed"></ion-icon>
@@ -71,6 +62,7 @@
             </div>
 
             <button class="btn-submit">Entrar</button>
+            <a class="visitbtn" href="pages/home.html">Entre como Visitante</a>
           </div>
 
           <!-- REGISTER -->
@@ -78,18 +70,24 @@
             <h2>Criar conta</h2>
 
             <div class="field">
-              <label><ion-icon name="person"></ion-icon>Nome</label>
-              <input type="text" placeholder="Seu nome" />
+              <label for="name"><ion-icon name="person"></ion-icon>Nome</label>
+              <input id="name" type="text" placeholder="Seu nome" />
             </div>
 
             <div class="field">
-              <label><ion-icon name="mail"></ion-icon>Email</label>
-              <input type="email" placeholder="seu@email.com" />
+              <label for="mail"><ion-icon name="mail"></ion-icon>Email</label>
+              <input id="mail" type="email" placeholder="seu@email.com" />
             </div>
 
             <div class="field">
-              <label><ion-icon name="lock-closed"></ion-icon>Senha</label>
-              <input type="password" placeholder="Crie uma senha forte" />
+              <label for="pass"
+                ><ion-icon name="lock-closed"></ion-icon>Senha</label
+              >
+              <input
+                id="pass"
+                type="password"
+                placeholder="Crie uma senha forte"
+              />
               <label for="showPassword" class="eye">
                 <ion-icon name="eye-outline" class="eye-open"></ion-icon>
                 <ion-icon name="eye-off-outline" class="eye-closed"></ion-icon>
@@ -97,7 +95,6 @@
             </div>
 
             <button class="btn-submit">Criar conta</button>
-            <a class="visitbtn" href="pages/home.html">Visitante</a>
           </div>
         </form>
       </section>

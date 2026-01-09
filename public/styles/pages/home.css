@@ -1,4 +1,7 @@
 /* ===== APP LAYOUT ===== */
+body {
+  background: var(--bg-01);
+}
 .app {
   min-height: 100svh;
   display: grid;

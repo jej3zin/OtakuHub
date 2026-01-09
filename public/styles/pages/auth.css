@@ -1,11 +1,10 @@
 /* ===== AUTH / LOGIN PAGE ===== */
-
 .system-log {
   min-height: 100svh;
   display: grid;
   place-items: center;
   padding: var(--space-4);
-  background: radial-gradient(circle at top, var(--brand-06), transparent 60%),
+  background: radial-gradient(circle at top, var(--brand-04), transparent 60%),
     var(--bg-02);
   font-family: var(--font-sans);
   color: var(--text-01);
@@ -24,6 +23,15 @@
   flex-direction: column;
   gap: var(--gap-02);
 }
+.system-log_img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+}
+.system-log_img img {
+  width: 100px;
+  height: auto;
+}
 
 /* ===== TOGGLE LOGIN / REGISTER ===== */
 .auth-toggle {
@@ -33,23 +41,21 @@
   background: var(--bg-03);
   border-radius: var(--radius-03);
 }
-
 .auth-toggle label {
   padding: 0.75rem;
   text-align: center;
   font-weight: 500;
-  color: var(--text-02);
+  color: var(--text-01);
   cursor: pointer;
   z-index: 2;
   transition: var(--anima-01);
 }
-
 .auth-toggle .indicator {
+  width: calc(50% - 4px);
   position: absolute;
   inset: 4px;
-  width: calc(50% - 4px);
-  background: linear-gradient(135deg, var(--brand-01), var(--brand-03));
   border-radius: var(--radius-02);
+  background: linear-gradient(135deg, var(--brand-01), var(--brand-03));
   transition: var(--anima-01);
 }
 
@@ -60,7 +66,9 @@
   gap: var(--gap-04);
   animation: fadeUp 0.35s ease;
 }
-
+.auth-panel h2 {
+  text-align: center;
+}
 #loginTab:checked ~ .system-log__card .login {
   display: flex;
 }
@@ -80,8 +88,11 @@
 }
 
 .field label {
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   color: var(--text-03);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-01);
 }
 
 .field input {
@@ -92,7 +103,9 @@
   border-radius: var(--radius-02);
   color: var(--text-01);
 }
-
+.field input:hover {
+  border-color: var(--brand-02);
+}
 .field input:focus {
   outline: none;
   border-color: var(--brand-03);
@@ -102,23 +115,19 @@
 /* ===== PASSWORD EYE ===== */
 .eye {
   position: absolute;
-  right: 14px;
-  top: 60%;
-  transform: translateY(-50%);
+  right: -0.2rem;
+  top: 54%;
   cursor: pointer;
 }
-
 .eye ion-icon {
   font-size: 1.2rem;
   color: var(--text-02);
   transition: var(--anima-01);
 }
-
 .eye:hover ion-icon {
   color: var(--brand-01);
   transform: scale(1.15);
 }
-
 .eye-closed {
   opacity: 0;
   transform: scale(0.6) rotate(-20deg);
@@ -130,32 +139,6 @@
 #showPassword:checked ~ .system-log__card .eye-closed {
   opacity: 1;
 }
-
-/* ===== OAUTH ===== */
-.oauth {
-  display: flex;
-  gap: var(--gap-03);
-}
-
-.oauth-btn {
-  width: 100%;
-  height: 46px;
-  border-radius: var(--radius-03);
-  border: var(--border-01);
-  background: var(--bg-03);
-  color: var(--text-01);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--gap-02);
-  cursor: pointer;
-  transition: var(--anima-01);
-}
-
-.oauth-btn:hover {
-  background: var(--brand-04);
-}
-
 /* ===== BUTTON ===== */
 .btn-submit {
   height: 48px;
@@ -165,11 +148,12 @@
   box-shadow: var(--shadow-btns);
   transition: var(--anima-01);
 }
-
 .btn-submit:hover {
   transform: translateY(-2px);
 }
-
+.visitbtn {
+  text-align: center;
+}
 /* ===== ANIMATION ===== */
 @keyframes fadeUp {
   from {
