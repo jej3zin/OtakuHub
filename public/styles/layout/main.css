@@ -1,3 +1,187 @@
 .main {
   padding: var(--header-height);
 }
+.secthome {
+  height: 200px;
+  width: 100%;
+  margin-bottom: var(--space-5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-03);
+}
+.slide-banner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  object-fit: cover;
+  border-radius: var(--radius-03);
+  box-shadow: var(--shadow-brand-01);
+}
+.banner-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.banner-card:first-child {
+  border-radius: 0 0 0 var(--radius-03);
+}
+.banner-card:last-child {
+  border-radius: 0 0 var(--radius-03) 0;
+}
+.bg-funds {
+  width: calc(100% - 8.8rem);
+  height: 198px;
+  position: absolute;
+  top: 4.5rem;
+  z-index: 14;
+  background: var(--funds-03);
+  border-radius: var(--radius-03);
+}
+.logotipo-home {
+  width: 14rem;
+  height: auto;
+  position: absolute;
+  top: 8rem;
+  z-index: 15;
+}
+
+.secthomeRender {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.secthomeRender h2 {
+  margin: 0.25rem 0;
+  padding-bottom: var(--space-2);
+  color: var(--text-01);
+  border-bottom: 1px solid var(--brand-01);
+}
+
+/* Slides */
+.slide-inline {
+  padding: 0.5rem 0.25rem;
+  display: flex;
+  gap: var(--gap-04);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.slide-gallery {
+  padding: 0.5rem 0.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--gap-04);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.slide-inline::-webkit-scrollbar,
+.slide-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+.slide-inline::-webkit-scrollbar-thumb,
+.slide-gallery::-webkit-scrollbar-thumb {
+  background: var(--brand-03);
+  border-radius: var(--radius-02);
+}
+.slide-inline::-webkit-scrollbar-track,
+.slide-gallery::-webkit-scrollbar-track {
+  background: var(--bg-05);
+  border-radius: var(--radius-02);
+}
+
+/* Arrows */
+.arrowClick {
+  width: 100%;
+  color: var(--text-01);
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  z-index: 10;
+}
+.arrowClick:hover {
+  background-color: var(--bg-03-2);
+}
+.btn-left,
+.btn-right {
+  height: 350px;
+  width: 50px;
+  color: var(--text-01);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  border: var(--border-02);
+  border-radius: var(--radius-02);
+  background-color: var(--funds-02);
+  transform: translateY(-50%);
+  transition: var(--anima-01);
+  &:hover {
+    background: var(--brand-05);
+  }
+}
+.btn-left ion-icon,
+.btn-right ion-icon {
+  font-size: 2rem;
+}
+
+.btn-left {
+  left: -3.75rem;
+}
+.btn-right {
+  right: -3.75rem;
+}
+/* Card */
+.anime-card {
+  height: auto;
+  min-width: 180px;
+  color: var(--text-01);
+  border-radius: var(--radius-02);
+  box-shadow: var(--shadow-01);
+  background-color: var(--bg-01-2);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.anime-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-brand-01);
+}
+.anime-card img {
+  width: 100%;
+  height: 225px;
+  display: block;
+}
+.anime-info {
+  margin: auto 0 0 0;
+  padding: var(--gap-03);
+  display: flex;
+  flex-direction: column;
+}
+.anime-title {
+  font-size: 1rem;
+  color: var(--text-01);
+  margin-bottom: var(--gap-02);
+}
+.anime-genre {
+  font-size: 0.875rem;
+  color: var(--text-03);
+}
+.anime-rating {
+  font-size: 0.875rem;
+  color: var(--brand-01);
+  margin-top: var(--gap-02);
+}
+.anime-episodes {
+  font-size: 0.875rem;
+  color: var(--text-02);
+  margin-top: var(--gap-01);
+}
+.anime-release {
+  font-size: 0.875rem;
+  color: var(--text-02);
+  margin-top: var(--gap-01);
+}

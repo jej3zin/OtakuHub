@@ -201,20 +201,20 @@ input[type='search'] {
 }
 /* Results */
 .search-results {
+  max-height: 350px; /* altura máxima com scroll */
+  width: var(--width-bar);
+  margin-top: 4px; /* espaçamento da search-box */
+  padding: var(--space-2) 0;
+  display: none; /* só aparece quando a classe .show for adicionada */
   position: absolute;
   top: 100%; /* logo abaixo da search-box */
   left: 0;
-  width: 100%; /* pega o mesmo width da search-box */
-  max-height: 300px; /* altura máxima com scroll */
+  z-index: 50;
   overflow-y: auto;
-  background: var(--bg-01);
   border: var(--border-01);
   border-radius: var(--radius-02);
+  background: var(--bg-01);
   box-shadow: var(--shadow-03);
-  padding: var(--space-2) 0;
-  margin-top: 4px; /* espaçamento da search-box */
-  display: none; /* só aparece quando a classe .show for adicionada */
-  z-index: 50;
 }
 /* mostra resultados quando tem a classe show */
 .search-results.show {
@@ -227,21 +227,23 @@ input[type='search'] {
 /* cada item da busca */
 .search-item {
   width: 100%;
-  padding: var(--space-2) var(--space-3);
-  background: transparent;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--gap-01);
+  padding: var(--space-1) var(--space-2);
   font-family: var(--font-sans);
   font-size: 0.9rem;
+  text-decoration: none;
   color: var(--text-01);
   cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap-03);
+  border: 1px solid transparent;
+  border-radius: var(--radius-02);
+  background: transparent;
   transition: var(--anima-01);
 }
 .search-item:hover {
   background: var(--bg-05);
+  border: 1px solid var(--brand-04);
 }
 .search-item strong {
   font-weight: 600;
@@ -249,6 +251,16 @@ input[type='search'] {
 .search-item span {
   font-size: 0.8rem;
   color: var(--text-03);
+}
+.search-item img {
+  width: 42px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.search-item mark {
+  background: var(--brand-01);
+  color: var(--bg-01);
 }
 
 /* scrollbar customizada */

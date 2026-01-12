@@ -1,81 +1,109 @@
+import { fetchWithCache } from '/js/state/listState.js';
+
 document.addEventListener('DOMContentLoaded', () => {
-  /* ==================================================
-     SEARCH BAR
-  ================================================== */
   const searchInput = document.getElementById('searchInput');
   const searchResults = document.getElementById('searchResults');
   const clearIcon = document.querySelector('.clear-icon');
 
-  if (searchInput && searchResults) {
-    let debounceTimer;
+  if (!searchInput || !searchResults) return;
 
-    searchInput.addEventListener('input', () => {
-      const value = searchInput.value.trim();
+  let debounceTimer;
+  let controller;
 
-      clearTimeout(debounceTimer);
+  searchInput.addEventListener('input', () => {
+    const value = searchInput.value.trim();
 
-      // limpa se menos de 2 caracteres
-      if (value.length < 2) {
-        searchResults.classList.remove('show');
-        searchResults.innerHTML = '';
-        return;
-      }
+    clearTimeout(debounceTimer);
 
-      debounceTimer = setTimeout(() => {
-        // 🔥 MOCK de dados (troca por API depois)
-        const data = [
-          { title: 'Naruto', desc: 'Anime de ação' },
-          { title: 'One Piece', desc: 'Piratas e aventura' },
-          { title: 'Bleach', desc: 'Shinigamis e espada' },
-          { title: 'Dragon Ball', desc: 'Clássico absoluto' },
-        ];
-
-        const filtered = data.filter((item) =>
-          item.title.toLowerCase().includes(value.toLowerCase())
-        );
-
-        renderSearchResults(filtered, value);
-      }, 300);
-    });
-
-    clearIcon?.addEventListener('click', () => {
-      searchInput.value = '';
-      searchResults.classList.remove('show');
-      searchResults.innerHTML = '';
-      searchInput.focus();
-    });
-
-    function renderSearchResults(items, term) {
-      if (!items.length) {
-        searchResults.innerHTML = `<span style="opacity:.6">Nada encontrado</span>`;
-        searchResults.classList.add('show');
-        return;
-      }
-
-      searchResults.innerHTML = items
-        .map((item) => {
-          const highlighted = item.title.replace(
-            new RegExp(`(${term})`, 'gi'),
-            '<mark>$1</mark>'
-          );
-
-          return `
-            <button class="search-item">
-              <strong>${highlighted}</strong>
-              <span>${item.desc}</span>
-            </button>
-          `;
-        })
-        .join('');
-
-      searchResults.classList.add('show');
+    if (value.length < 2) {
+      resetSearch();
+      return;
     }
 
-    // fecha resultados ao clicar fora
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.search-box')) {
-        searchResults.classList.remove('show');
+    debounceTimer = setTimeout(() => {
+      searchAnime(value);
+    }, 300);
+  });
+
+  clearIcon?.addEventListener('click', () => {
+    searchInput.value = '';
+    resetSearch();
+    searchInput.focus();
+  });
+
+  async function searchAnime(term) {
+    // cancela request anterior
+    controller?.abort();
+    controller = new AbortController();
+
+    searchResults.classList.add('show');
+    searchResults.innerHTML = renderLoading();
+
+    try {
+      const data = await fetchWithCache(
+        `search-${term}`,
+        `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(term)}&limit=6`
+      );
+
+      if (!data?.length) {
+        searchResults.innerHTML = `<span class="empty">Nada encontrado</span>`;
+        return;
       }
-    });
+
+      renderResults(data, term);
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        searchResults.innerHTML = `<span class="empty">Erro na busca</span>`;
+        console.error(err);
+      }
+    }
   }
+
+  function renderResults(items, term) {
+    searchResults.innerHTML = items
+      .map((anime) => {
+        const title = highlight(anime.title, term);
+        const img = anime.images?.jpg?.image_url;
+        const year = anime.year ?? '—';
+
+        return `
+          <a href="/anime.html?id=${anime.mal_id}" class="search-item">
+            <img src="${img}" alt="${anime.title}" loading="lazy" />
+            <div>
+              <strong>${title}</strong>
+              <span>${year}</span>
+            </div>
+          </a>
+        `;
+      })
+      .join('');
+  }
+
+  function highlight(text, term) {
+    return text.replace(new RegExp(`(${term})`, 'gi'), '<mark>$1</mark>');
+  }
+
+  function renderLoading() {
+    return Array.from({ length: 4 })
+      .map(
+        () => `
+        <div class="search-item skeleton">
+          <div class="thumb"></div>
+          <div class="lines"></div>
+        </div>
+      `
+      )
+      .join('');
+  }
+
+  function resetSearch() {
+    searchResults.classList.remove('show');
+    searchResults.innerHTML = '';
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-box')) {
+      resetSearch();
+    }
+  });
 });

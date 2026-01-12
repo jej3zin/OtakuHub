@@ -5,11 +5,15 @@
 
 /* ======= Pages ======= */
 @import url(./pages/home.css);
+@import url(./pages/news.css);
+@import url(./pages/popular.css);
+@import url(./pages/category.css);
+@import url(./pages/anime.css);
 @import url(./pages/auth.css);
 @import url(./pages/myaccount.css);
 
 /* ======= layout ======= */
 @import url(./layout/header.css);
 @import url(./layout/main.css);
-/* @import url(./layout/sidebar.css); */
+@import url(./layout/footer.css);
 @import url(./layout/timeline.css);

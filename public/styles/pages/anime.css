@@ -1,0 +1,220 @@
+/* ============ BASE =========== */
+.main.anime-page {
+  padding: var(--space-9) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-06);
+}
+
+/* ============= HERO ============ */
+.anime-hero {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--gap-06);
+  background: var(--bg-01);
+  border: var(--card-border);
+  border-radius: var(--radius-04);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-03);
+}
+
+.anime-cover {
+  width: 100%;
+  border-radius: var(--radius-03);
+  box-shadow: var(--shadow-02);
+}
+.anime-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-04);
+}
+.anime-meta h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brand-01);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.anime-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-05);
+  font-size: 0.95rem;
+  color: var(--text-02);
+}
+
+.anime-stats span {
+  padding: 0.35rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-02);
+  border: var(--border-01);
+  border-radius: var(--radius-02);
+  background: var(--bg-05);
+}
+.anime-stats span .star {
+  color: var(--brand-01);
+}
+/* =========================
+   GENRES
+========================= */
+
+.anime-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-02);
+}
+
+.genre-tag {
+  font-size: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-02);
+  background: var(--brand-06);
+  color: var(--brand-01);
+  border: 1px solid var(--brand-04);
+  text-decoration: none;
+  transition: var(--anima-01);
+}
+
+.genre-tag:hover {
+  background: var(--brand-05);
+  box-shadow: var(--shadow-brand-01);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn-primary {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-03);
+  border: none;
+  background: var(--brand-01);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-btns);
+  transition: var(--anima-01);
+}
+
+.btn-primary:hover {
+  background: var(--brand-02);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.anime-section {
+  background: var(--bg-01);
+  border-radius: var(--radius-04);
+  border: var(--card-border);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-02);
+}
+
+.anime-section h2 {
+  margin-bottom: var(--gap-04);
+  padding-left: var(--space-2);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-01);
+  border-left: 4px solid var(--brand-01);
+}
+
+/* =========================
+   SINOPSE
+========================= */
+
+#synopsis {
+  line-height: 1.6;
+  color: var(--text-02);
+}
+
+#synopsis p {
+  margin-bottom: var(--gap-03);
+}
+
+/* =========================
+   TRAILER
+========================= */
+
+#trailer iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-03);
+  border: none;
+  box-shadow: var(--shadow-02);
+}
+
+/* =========================
+   CHARACTERS
+========================= */
+
+.character-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--gap-04);
+}
+
+.character-card {
+  background: var(--bg-03);
+  border-radius: var(--radius-03);
+  overflow: hidden;
+  text-align: center;
+  box-shadow: var(--shadow-01);
+  transition: var(--anima-01);
+}
+
+.character-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.character-card span {
+  display: block;
+  padding: var(--space-2);
+  font-size: 0.8rem;
+  color: var(--text-01);
+}
+
+.character-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-03);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .anime-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .anime-cover {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+
+  .anime-meta {
+    align-items: center;
+    text-align: center;
+  }
+
+  .anime-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    align-self: center;
+  }
+}

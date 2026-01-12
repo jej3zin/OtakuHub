@@ -25,7 +25,7 @@
   </head>
   <body>
     <div id="preloader">
-      <span class="loader"> </span>
+      <span class="loader"></span>
     </div>
 
     <div id="content">
@@ -36,8 +36,8 @@
           </a>
 
           <nav class="menu-head">
-            <a href="/pages/home.html" class="menu-link active">Home</a>
-            <a href="/pages/news.html" class="menu-link">News</a>
+            <a href="/pages/home.html" class="menu-link">Home</a>
+            <a href="/pages/news.html" class="menu-link active">News</a>
             <a href="/pages/popular.html" class="menu-link">Populares</a>
 
             <div class="dropcategory">
@@ -130,55 +130,7 @@
         </div>
       </header>
 
-      <main class="main">
-        <section class="secthome">
-          <div class="slide-banner"></div>
-          <div class="bg-funds"></div>
-          <div class="logotipo-home">
-            <img src="/asset/briefing/oh-logotipo.webp" alt="logotipo" />
-          </div>
-        </section>
-
-        <section class="secthomeRender">
-          <h2>Trending Animes</h2>
-          <article class="slide-inline slide-trending" role="list"></article>
-
-          <div class="arrowClick">
-            <button class="btn-left">
-              <ion-icon name="chevron-back-circle"></ion-icon>
-            </button>
-            <button class="btn-right">
-              <ion-icon name="chevron-forward-circle"></ion-icon>
-            </button>
-          </div>
-        </section>
-
-        <section class="secthomeRender">
-          <h2>Top Animes</h2>
-
-          <article
-            class="slide-gallery slide-TopAiringAnimes"
-            role="list"
-          ></article>
-        </section>
-
-        <section class="secthomeRender">
-          <h2>Top Scores</h2>
-          <article
-            class="slide-inline slide-TopScoreAnimes"
-            role="list"
-          ></article>
-
-          <div class="arrowClick">
-            <button class="btn-left">
-              <ion-icon name="chevron-back-circle"></ion-icon>
-            </button>
-            <button class="btn-right">
-              <ion-icon name="chevron-forward-circle"></ion-icon>
-            </button>
-          </div>
-        </section>
-      </main>
+      <main class="main"><section class="news-list"></section></main>
 
       <footer class="footer">
         <div class="footer-container">
@@ -276,6 +228,8 @@
       };
     </script>
     <script type="module" src="/js/services/release.js"></script>
-    <script type="module" src="/js/index.js"></script>
+    <script type="module" src="/js/components/search.js"></script>
+    <script type="module" src="/js/layout/header.js"></script>
+    <script type="module" src="/js/pages/news.js"></script>
   </body>
 </html>
