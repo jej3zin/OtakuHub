@@ -42,13 +42,13 @@
               <ion-icon name="person"></ion-icon>Perfil
             </button>
 
-            <button
+            <a href="/pages/myaccount.html"
               class="headDrop-links"
               id="myaccountBtn"
               style="display: none"
             >
               <ion-icon name="person-circle"></ion-icon>Conta
-            </button>
+            </a>
 
             <a href="/pages/login.html" class="headDrop-links" id="loginBtn">
               <ion-icon name="log-in"></ion-icon>Login
@@ -81,61 +81,563 @@
 
       <main class="myaccount">
         <nav class="sideMenu">
-          <button class="menu-ctt active menu-cont"><ion-icon name="person-circle"></ion-icon>Conta</button>
-          <button class="menu-ctt menu-security"><ion-icon name="shield"></ion-icon>Segurança</button>
-          <button class="menu-ctt menu-notifications"><ion-icon name="notifications-circle"></ion-icon>Notificações</button>
-          <button class="menu-ctt menu-privacy"><ion-icon name="eye-off"></ion-icon>Privacidade</button>
-          <button class="menu-ctt menu-subscriptions"><ion-icon name="card"></ion-icon>Assinaturas</button>
-          <button class="menu-ctt menu-connectedapps"><ion-icon name="apps"></ion-icon>Apps Conectados</button>
-          <button class="menu-ctt menu-deleteaccount"><ion-icon name="trash"></ion-icon>Deletar Conta</button>
+          <button class="menu-ctt active menu-cont" data-tab="cont"><ion-icon name="person-circle"></ion-icon>Conta</button>
+          <button class="menu-ctt menu-security" data-tab="security"><ion-icon name="shield"></ion-icon>Segurança</button>
+          <button class="menu-ctt menu-notifications" data-tab="notifications"><ion-icon name="notifications-circle"></ion-icon>Notificações</button>
+          <button class="menu-ctt menu-privacy" data-tab="privacy"><ion-icon name="eye-off"></ion-icon>Privacidade</button>
+          <button class="menu-ctt menu-subscriptions" data-tab="subscriptions"><ion-icon name="card"></ion-icon>Assinaturas</button>
+          <button class="menu-ctt menu-connectedapps" data-tab="connectedapps"><ion-icon name="apps"></ion-icon>Apps Conectados</button>
+          <button class="menu-ctt menu-deleteaccount" data-tab="delete"><ion-icon name="trash"></ion-icon>Deletar Conta</button>
         </nav>
 
         <nav class="sectionContent">
-          <section class="accountContent">
-            <div class="align-center-img">
-              <img src="/asset/briefing/oh-logo.webp" alt="avatar">
-            </div>
+          <section class="accountCont" data-tab="cont">
 
-            <div class="text-top">
-              <h1>Minha Conta</h1>
-             <p>Gerencie as configurações da sua conta aqui.</p>
-            </div>
+            <!-- AVATAR -->
+  <div class="avatar-wrapper">
+    <img id="avatarPreview" src="/asset/briefing/oh-logo.webp" alt="Avatar">
+    <div class="avatar-overlay">
+      <ion-icon name="camera"></ion-icon>
+    </div>
+    <input type="file" id="avatarInput" accept="image/*" hidden>
+  </div>
+
+  <!-- FORM -->
+  <form class="account-form">
+   <div class="account-inline">
+     <div class="field">
+      <label>Nome de exibição</label>
+      <input type="text" placeholder="Seu nome">
+    </div>
+
+    <div class="field">
+      <label>Username</label>
+      <input type="text" value="@usuario" disabled>
+    </div>
+   </div>
+
+    <div class="field">
+      <label>Bio</label>
+      <textarea rows="3" placeholder="Fale um pouco sobre você"></textarea>
+    </div>
+
+    <div class="field">
+      <label>País</label>
+      <input type="text" placeholder="Brasil">
+    </div>
+
+    <div class="field">
+      <label>Background</label>
+      <select id="bgType">
+        <option value="solid">Cor sólida</option>
+        <option value="gradient">Gradiente</option>
+      </select>
+      <input type="color" id="bgColor1">
+      <input type="color" id="bgColor2" style="display:none">
+    </div>
+
+    <button type="submit" class="btn-save">
+      <ion-icon name="save"></ion-icon>Salvar alterações
+    </button>
+  </form>
          </section>
 
-          <section class="accountSegurity">
+          <section class="accountSecurity" data-tab="security">
             <div class="text-top">
               <h1>Segurança</h1>
              <p>Gerencie as configurações da sua conta aqui.</p>
             </div>
+
+            <div class="security-box">
+
+    <!-- ALTERAR SENHA -->
+    <div class="security-card">
+      <h3>Alterar senha</h3>
+
+      <div class="field">
+        <label>Senha atual</label>
+        <input type="password" placeholder="••••••••">
+      </div>
+
+      <div class="field">
+        <label>Nova senha</label>
+        <input type="password" placeholder="Mínimo 8 caracteres">
+      </div>
+
+      <div class="field">
+        <label>Confirmar nova senha</label>
+        <input type="password" placeholder="Repita a nova senha">
+      </div>
+
+      <button class="btn-secondary">
+        <ion-icon name="key"></ion-icon>Atualizar senha
+      </button>
+    </div>
+
+    <!-- 2FA -->
+    <div class="security-card">
+      <h3>Autenticação em duas etapas (2FA)</h3>
+      <p class="hint">
+        Adicione uma camada extra de segurança à sua conta.
+      </p>
+
+      <label class="toggle">
+        <input type="checkbox">
+        <span class="slider"></span>
+        <span class="toggle-text">Ativar 2FA</span>
+      </label>
+    </div>
+
+    <!-- SESSÕES -->
+    <div class="security-card">
+      <h3>Sessões ativas</h3>
+      <p class="hint">Dispositivos atualmente conectados.</p>
+
+      <ul class="session-list">
+        <li>
+          <div>
+            <strong>Chrome • Windows</strong>
+            <span>Agora • IP 192.168.0.1</span>
+          </div>
+          <button class="btn-link danger">Encerrar</button>
+        </li>
+
+        <li>
+          <div>
+            <strong>Mobile • Android</strong>
+            <span>Ontem • IP 187.22.xxx</span>
+          </div>
+          <button class="btn-link danger">Encerrar</button>
+        </li>
+      </ul>
+
+      <button class="btn-danger">
+        <ion-icon name="log-out"></ion-icon>Encerrar todas as sessões
+      </button>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="security-card">
+      <h3>Email de segurança</h3>
+
+      <div class="field">
+        <label>Email</label>
+        <input type="email" value="user@email.com">
+      </div>
+
+      <button class="btn-secondary">
+        <ion-icon name="mail"></ion-icon>Atualizar email
+      </button>
+    </div>
+
+  </div>
           </section>
-          <section class="accountNotification">
+
+          <section class="accountNotifications" data-tab="notifications">
             <div class="text-top">
               <h1>Notificações</h1>
              <p>Gerencie as configurações da sua conta aqui.</p>
-            </div></section>
-          <section class="accountPrivacy">
+            </div>
+
+             <div class="notifications-box">
+
+    <!-- GERAIS -->
+    <div class="notification-card">
+      <h3>Notificações gerais</h3>
+
+      <label class="toggle">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+        <span class="toggle-text">Atividade na conta</span>
+      </label>
+
+      <label class="toggle">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+        <span class="toggle-text">Novos seguidores</span>
+      </label>
+
+      <label class="toggle">
+        <input type="checkbox">
+        <span class="slider"></span>
+        <span class="toggle-text">Curtidas e comentários</span>
+      </label>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="notification-card">
+      <h3>Conteúdo</h3>
+
+      <label class="toggle">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+        <span class="toggle-text">Novos episódios</span>
+      </label>
+
+      <label class="toggle">
+        <input type="checkbox">
+        <span class="slider"></span>
+        <span class="toggle-text">Recomendações personalizadas</span>
+      </label>
+
+      <label class="toggle">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+        <span class="toggle-text">Lançamentos e novidades</span>
+      </label>
+    </div>
+
+    <!-- CANAIS -->
+    <div class="notification-card">
+      <h3>Canais de notificação</h3>
+
+      <label class="toggle">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+        <span class="toggle-text">Notificações no site</span>
+      </label>
+
+      <label class="toggle">
+        <input type="checkbox">
+        <span class="slider"></span>
+        <span class="toggle-text">Email</span>
+      </label>
+
+      <label class="toggle">
+        <input type="checkbox">
+        <span class="slider"></span>
+        <span class="toggle-text">Push (em breve)</span>
+      </label>
+    </div>
+
+    <!-- SILENCIAR -->
+    <div class="notification-card">
+      <h3>Modo silencioso</h3>
+      <p class="hint">Pause notificações por um período.</p>
+
+      <div class="field">
+        <select>
+          <option>Desativado</option>
+          <option>1 hora</option>
+          <option>8 horas</option>
+          <option>24 horas</option>
+          <option>7 dias</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn-secondary save-notifications">
+      <ion-icon name="save"></ion-icon>Salvar preferências
+    </button>
+
+  </div>
+          </section>
+
+          <section class="accountPrivacy" data-tab="privacy">
             <div class="text-top">
               <h1>Privacidade</h1>
              <p>Gerencie as configurações da sua conta aqui.</p>
-            </div></section>
-          <section class="accountSubscriptions">
-            <div class="text-top">
-              <h1>Assinaturas</h1>
-             <p>Gerencie as configurações da sua conta aqui.</p>
-            </div></section>
-          <section class="accountConnectedApps">
+            </div>
+
+            <div class="privacy-box">
+
+    <!-- VISIBILIDADE -->
+    <div class="privacy-card">
+      <h3>Visibilidade do perfil</h3>
+
+      <div class="field">
+        <label>Quem pode ver meu perfil</label>
+        <select>
+          <option>Público</option>
+          <option>Somente seguidores</option>
+          <option>Privado</option>
+        </select>
+      </div>
+
+      <label class="toggle">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+        <span class="toggle-text">Mostrar minha biblioteca</span>
+      </label>
+
+      <label class="toggle">
+        <input type="checkbox">
+        <span class="slider"></span>
+        <span class="toggle-text">Mostrar atividades recentes</span>
+      </label>
+    </div>
+
+    <!-- INTERAÇÕES -->
+    <div class="privacy-card">
+      <h3>Interações</h3>
+
+      <div class="field">
+        <label>Quem pode comentar</label>
+        <select>
+          <option>Todos</option>
+          <option>Somente seguidores</option>
+          <option>Ninguém</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Quem pode enviar mensagens</label>
+        <select>
+          <option>Todos</option>
+          <option>Seguidores</option>
+          <option>Ninguém</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- DADOS -->
+    <div class="privacy-card">
+      <h3>Dados e personalização</h3>
+
+      <label class="toggle">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+        <span class="toggle-text">Usar dados para recomendações</span>
+      </label>
+
+      <label class="toggle">
+        <input type="checkbox">
+        <span class="slider"></span>
+        <span class="toggle-text">Participar de análises anônimas</span>
+      </label>
+    </div>
+
+    <!-- BLOQUEIOS -->
+    <div class="privacy-card">
+      <h3>Usuários bloqueados</h3>
+      <p class="hint">Pessoas que você bloqueou não podem interagir com você.</p>
+
+      <ul class="blocked-list">
+        <li>
+          <span>@usuario_chato</span>
+          <button class="btn-link danger">Desbloquear</button>
+        </li>
+        <li>
+          <span>@spam_bot</span>
+          <button class="btn-link danger">Desbloquear</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- EXPORT / DELETE -->
+    <div class="privacy-card danger-zone">
+      <h3>Dados da conta</h3>
+
+      <button class="btn-secondary">
+        <ion-icon name="download"></ion-icon>Baixar meus dados
+      </button>
+
+      <button class="btn-danger">
+        <ion-icon name="trash"></ion-icon>Solicitar exclusão de dados
+      </button>
+    </div>
+
+    <button class="btn-secondary">
+      <ion-icon name="save"></ion-icon>Salvar preferências
+    </button>
+
+  </div>
+          </section>
+
+          <section class="accountSubscriptions" data-tab="subscriptions">
+  <div class="text-top">
+    <h1>Assinaturas</h1>
+    <p>Gerencie seu plano, pagamentos e histórico.</p>
+  </div>
+
+  <div class="subscriptions-box">
+
+    <!-- PLANO ATUAL -->
+    <div class="subscription-card current-plan">
+      <h3>Plano atual</h3>
+
+      <div class="plan-info">
+        <strong>OtakuHub Plus</strong>
+        <span>R$ 19,90 / mês</span>
+        <span class="badge active">Ativo</span>
+      </div>
+
+      <p class="hint">Renovação automática em 12/02/2026</p>
+
+      <div class="plan-actions">
+        <button class="btn-secondary">
+          <ion-icon name="swap-horizontal"></ion-icon>Trocar plano
+        </button>
+        <button class="btn-danger">
+          <ion-icon name="close-circle"></ion-icon>Cancelar assinatura
+        </button>
+      </div>
+    </div>
+
+    <!-- PAGAMENTO -->
+    <div class="subscription-card">
+      <h3>Método de pagamento</h3>
+
+      <div class="payment-method">
+        <ion-icon name="card"></ion-icon>
+        <span>Cartão final •••• 4321</span>
+      </div>
+
+      <button class="btn-secondary">
+        <ion-icon name="create"></ion-icon>Alterar pagamento
+      </button>
+    </div>
+
+    <!-- HISTÓRICO -->
+    <div class="subscription-card">
+      <h3>Histórico de pagamentos</h3>
+
+      <ul class="payment-history">
+        <li>
+          <span>Jan 2026</span>
+          <span>R$ 19,90</span>
+          <button class="btn-link">Recibo</button>
+        </li>
+        <li>
+          <span>Dez 2025</span>
+          <span>R$ 19,90</span>
+          <button class="btn-link">Recibo</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CUPOM -->
+    <div class="subscription-card">
+      <h3>Cupom promocional</h3>
+
+      <div class="field">
+        <input type="text" placeholder="Digite o código do cupom">
+      </div>
+
+      <button class="btn-secondary">
+        <ion-icon name="pricetag"></ion-icon>Aplicar cupom
+      </button>
+    </div>
+
+    <!-- FATURA -->
+    <div class="subscription-card">
+      <h3>Fatura</h3>
+      <p class="hint">Envio automático por email.</p>
+
+      <label class="toggle">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+        <span class="toggle-text">Receber fatura por email</span>
+      </label>
+    </div>
+
+  </div>
+          </section>
+
+          <section class="accountConnectedapps" data-tab="connectedapps">
             <div class="text-top">
               <h1>Apps Conectados</h1>
              <p>Gerencie as configurações da sua conta aqui.</p>
-            </div></section>
-          <section class="accountDelete">
+            </div>
+
+            <div class="connected-box">
+
+    <!-- APP -->
+    <div class="connected-card">
+      <div class="app-info">
+        <ion-icon name="logo-github"></ion-icon>
+        <div>
+          <strong>GitHub</strong>
+          <span>Acesso para login e importação de dados</span>
+        </div>
+      </div>
+
+      <button class="btn-danger btn-sm">
+        <ion-icon name="unlink"></ion-icon>Desconectar
+      </button>
+    </div>
+
+    <!-- APP -->
+    <div class="connected-card">
+      <div class="app-info">
+        <ion-icon name="logo-google"></ion-icon>
+        <div>
+          <strong>Google</strong>
+          <span>Login rápido e sincronização básica</span>
+        </div>
+      </div>
+
+      <button class="btn-danger btn-sm">
+        <ion-icon name="unlink"></ion-icon>Desconectar
+      </button>
+    </div>
+
+    <!-- SEM APPS -->
+    <!--
+    <p class="hint center">
+      Nenhum app conectado no momento.
+    </p>
+    -->
+
+  </div>
+          </section>
+
+          <section class="accountDelete" data-tab="delete">
             <div class="text-top">
               <h1>Deletar Conta</h1>
              <p>Gerencie as configurações da sua conta aqui.</p>
-            </div></section>
+            </div>
+
+            <div class="delete-box">
+
+    <div class="alert-danger">
+      <ion-icon name="warning"></ion-icon>
+      <p>
+        Ao deletar sua conta, <strong>todos os seus dados serão removidos</strong>,
+        incluindo posts, comentários, curtidas e histórico.
+      </p>
+    </div>
+
+    <ul class="delete-list">
+      <li>❌ Perfil e avatar</li>
+      <li>❌ Conteúdos criados</li>
+      <li>❌ Seguidores e seguindo</li>
+      <li>❌ Assinaturas ativas</li>
+      <li>❌ Acesso permanente à conta</li>
+    </ul>
+
+    <div class="field">
+      <label for="deletePassword">Confirme sua senha</label>
+      <input
+        type="password"
+        id="deletePassword"
+        placeholder="Digite sua senha"
+      >
+    </div>
+
+    <div class="field">
+      <label class="checkbox-danger">
+        <input type="checkbox" id="confirmDelete">
+        <span>Eu entendo que essa ação é irreversível</span>
+      </label>
+    </div>
+
+    <button class="btn-danger btn-full" disabled>
+      <ion-icon name="trash"></ion-icon>
+      Deletar minha conta
+    </button>
+
+    <p class="hint center">
+      Esta ação não pode ser desfeita. Nem chorando no suporte.
+    </p>
+
+  </div>
+          </section>
+            
         </nav>
       </main>
     </div>
+    <script type="module" src="/js/pages/myaccount.js"></script>
   <script type="module" src="/js/index.js"></script>
   </body>
 </html>
