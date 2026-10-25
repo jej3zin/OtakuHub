@@ -37,6 +37,10 @@ async function request<T>(path: string, signal?: AbortSignal): Promise<JikanResp
 }
 
 export async function getTopAnime(): Promise<Anime[]> {
+  return (await request<Anime[]>('/top/anime?filter=bypopularity&limit=12')).data;
+}
+
+export async function getTopRatedAnime(): Promise<Anime[]> {
   return (await request<Anime[]>('/top/anime?limit=12')).data;
 }
 
