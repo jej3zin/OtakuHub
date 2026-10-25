@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Play, Sparkles, TrendingUp, CalendarDays, ChevronRight } from 'lucide-react';
 import AnimeCard from '../components/AnimeCard';
-import { getSeasonAnime, getTopAnime, type Anime } from '../types/anime';
+import { getSeasonAnime, getTopAnime, getTopRatedAnime, type Anime } from '../types/anime';
 
 function AnimeSection({ title, subtitle, icon, items, loading }: { title: string; subtitle: string; icon: ReactNode; items: Anime[]; loading: boolean }) {
   return (
@@ -22,14 +22,16 @@ function AnimeSection({ title, subtitle, icon, items, loading }: { title: string
 export default function HomePage() {
   const [top, setTop] = useState<Anime[]>([]);
   const [season, setSeason] = useState<Anime[]>([]);
+  const [topRated, setTopRated] = useState<Anime[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let active = true;
-    Promise.allSettled([getTopAnime(), getSeasonAnime()]).then(([topResult, seasonResult]) => {
+    Promise.allSettled([getTopAnime(), getSeasonAnime(), getTopRatedAnime()]).then(([topResult, seasonResult, ratedResult]) => {
       if (!active) return;
       if (topResult.status === 'fulfilled') setTop(topResult.value);
       if (seasonResult.status === 'fulfilled') setSeason(seasonResult.value);
+      if (ratedResult.status === 'fulfilled') setTopRated(ratedResult.value);
       setLoading(false);
     });
     return () => { active = false; };
@@ -57,7 +59,8 @@ export default function HomePage() {
       </section>
       <div className="page-content">
         <div className="discovery-strip"><div className="discovery-icon"><TrendingUp size={20} /></div><div><strong>O que está em alta</strong><span>Os títulos que todo mundo está assistindo</span></div><Link to="/popular" aria-label="Ver animes populares"><ArrowRight size={18} /></Link></div>
-        <AnimeSection title="Em alta" subtitle="Os favoritos da comunidade" icon={<TrendingUp size={19} />} items={top} loading={loading} />
+        <AnimeSection title="Em alta" subtitle="Os títulos mais populares entre os fãs" icon={<TrendingUp size={19} />} items={top} loading={loading} />
+        <AnimeSection title="Animes bem avaliados" subtitle="Séries e filmes com as melhores notas da comunidade" icon={<Sparkles size={19} />} items={topRated} loading={loading} />
         <AnimeSection title="Temporada atual" subtitle="Acompanhe os lançamentos recentes" icon={<CalendarDays size={19} />} items={season} loading={loading} />
       </div>
     </>
