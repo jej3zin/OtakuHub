@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookmarkPlus, Star } from 'lucide-react';
 import type { Anime } from '../types/anime';
@@ -5,10 +6,10 @@ import type { Anime } from '../types/anime';
 interface Props { anime: Anime; index?: number; }
 
 export default function AnimeCard({ anime, index }: Props) {
-  const saved = (() => {
+  const [saved, setSaved] = useState(() => {
     try { return (JSON.parse(localStorage.getItem('otakuhub-library') || '[]') as number[]).includes(anime.mal_id); }
     catch { return false; }
-  })();
+  });
   const image = anime.images?.webp?.large_image_url || anime.images?.jpg?.large_image_url || anime.images?.jpg?.image_url;
   return (
     <article className="anime-card">
@@ -31,6 +32,7 @@ export default function AnimeCard({ anime, index }: Props) {
           const library = JSON.parse(localStorage.getItem('otakuhub-library') || '[]') as number[];
           const next = library.includes(anime.mal_id) ? library.filter(id => id !== anime.mal_id) : [...library, anime.mal_id];
           localStorage.setItem('otakuhub-library', JSON.stringify(next));
+          setSaved(next.includes(anime.mal_id));
           window.dispatchEvent(new Event('otakuhub-library-change'));
         } catch { /* local storage indisponível */ }
       }}><BookmarkPlus size={16} /></button>
