@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Play, Sparkles, TrendingUp, CalendarDays, ChevronRight } from 'lucide-react';
 import AnimeCard from '../components/AnimeCard';
 import { getSeasonAnime, getTopAnime, type Anime } from '../types/anime';
 
-function AnimeSection({ title, subtitle, icon, items, loading }: { title: string; subtitle: string; icon: React.ReactNode; items: Anime[]; loading: boolean }) {
+function AnimeSection({ title, subtitle, icon, items, loading }: { title: string; subtitle: string; icon: ReactNode; items: Anime[]; loading: boolean }) {
   return (
     <section className="content-section">
       <div className="section-heading">
