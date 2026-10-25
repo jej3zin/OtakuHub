@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
 import { Link, Route, Routes, useParams } from 'react-router-dom';
 import { ArrowLeft, Bookmark, CalendarDays, Star, Tv, Users, Search } from 'lucide-react';
 import Header from './components/Header';
