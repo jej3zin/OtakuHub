@@ -1,28 +1,48 @@
-# ⚡| OtakuHub
+# OtakuHub
 
-OtakuHub é um site de animes semelhante a outros encontrados na web.
+Plataforma de descoberta de animes com interface responsiva e catálogo alimentado pela API pública [Jikan](https://jikan.moe/), que disponibiliza dados do MyAnimeList.
 
-- Usando API MAL para conteúdos
-- Onde assistir
-- Novos lançamentos
+## Stack
 
----
+- React 18
+- TypeScript
+- Vite
+- React Router
+- Lucide React
+- Jikan API v4
 
-## 🎯| Objetivo
+## Funcionalidades
 
-Garantir um espaço aos otakus interagirem entre si.
+- Página inicial com animes populares e temporada atual
+- Busca com sugestões
+- Catálogo de populares e lançamentos
+- Exploração por gênero
+- Detalhes, sinopse, avaliação e trailer quando disponível
+- Lista pessoal salva no navegador
+- Perfil local
+- Layout responsivo e estados de carregamento
 
-- Animes em lançamentos
-- Animes em alta
+## Requisitos
 
-## 🛠️| Ferramentas
+Node.js 20.19+ ou 22.12+.
 
-- HTML
-- CSS
-- JAVASCRIPT
+## Desenvolvimento
 
-> Sem Frameworks
+```bash
+npm install
+npm run dev
+```
 
-## 📗| Notas Finais
+## Validar e gerar build
 
-Este é apenas um projeto pessoal.
+```bash
+npm run typecheck
+npm run build
+npm run preview
+```
+
+## Observações
+
+A API Jikan é pública e pode limitar consultas em períodos de alto tráfego. A lista e o perfil são armazenados localmente no navegador; não há autenticação nem sincronização entre dispositivos neste momento.
+
+Os arquivos da versão anterior foram mantidos em `public/pages` e `public/js` durante a migração, para referência. A nova aplicação é iniciada pelo `index.html` na raiz e pelo código em `src/`.
